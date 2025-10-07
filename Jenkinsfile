@@ -15,7 +15,11 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'pytest test_app.py'
+                // Baris ini memaksa build gagal untuk keperluan testing notifikasi failure
+                sh 'exit 1'
+                
+                // Jika ingin mengembalikan test normal, ganti atau hapus baris di atas:
+                // sh 'pytest test_app.py'
             }
         }
 
